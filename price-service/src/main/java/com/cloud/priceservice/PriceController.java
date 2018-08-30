@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.Data;
 
 @RestController
-@RequestMapping("products/price")
+@RequestMapping("price")
 public class PriceController {
 	String productPrice="100";
 

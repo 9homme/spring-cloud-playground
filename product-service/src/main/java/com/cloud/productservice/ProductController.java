@@ -18,7 +18,7 @@ public class ProductController {
 
     @GetMapping("/search")
     public Product getProductsByTypeAndName(@RequestParam(value = "sku") final String sku) {
-        String url = "http://PRICING-SERVICE/products/price?sku=" + sku;
+        String url = "http://PRICING-SERVICE/price?sku=" + sku;
         return restTemplate.getForObject(url, Product.class);
     }
 
