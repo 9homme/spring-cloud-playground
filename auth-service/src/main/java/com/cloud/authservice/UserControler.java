@@ -19,17 +19,17 @@ public class UserControler {
     @Autowired
     private TokenStore tokenStore;
     	
-	@RequestMapping("/user")
+	@RequestMapping("/resource/user")
     public Principal user(Principal user) {
-		System.out.println("user ==================>"+user.getName());
         return user;
     }
 	
-	@RequestMapping("/user/logout")
+	@RequestMapping("/resource/user/logout")
     public void revokeToken() {
         final OAuth2Authentication auth = (OAuth2Authentication) SecurityContextHolder
                 .getContext().getAuthentication();
         final String token = tokenStore.getAccessToken(auth).getValue();
-        tokenServices.revokeToken(token);
+        System.out.println("#############################################=>Logout Token:"+token);
+        tokenServices.revokeToken(token);   
     }
 }
