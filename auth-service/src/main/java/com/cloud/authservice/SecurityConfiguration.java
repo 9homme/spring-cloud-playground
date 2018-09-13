@@ -105,7 +105,7 @@ public class SecurityConfiguration {
 			.secret("{noop}secret")
 					.autoApprove(true)
 					.authorizedGrantTypes("authorization_code", "client_credentials", "password", "refresh_token","implicit")
-					.scopes("read", "write");
+					.scopes("read", "write", "request");
 		}
 
 		@Override
@@ -181,7 +181,6 @@ public class SecurityConfiguration {
 			source.registerCorsConfiguration("/**", configuration);
 			return source;
 		}
-		
 
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {

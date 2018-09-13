@@ -25,15 +25,16 @@ public class ProductServiceApplication {
 	@LoadBalanced
 	public OAuth2RestTemplate restTemplate() {
 		ResourceOwnerPasswordResourceDetails resourceDetails = new ResourceOwnerPasswordResourceDetails();
-        resourceDetails.setUsername("root");
+        resourceDetails.setUsername("admin");
         resourceDetails.setPassword("password");
         resourceDetails.setAccessTokenUri(String.format("http://localhost:%d/oauth/token", 8080));
-        resourceDetails.setClientId("acme");
+        resourceDetails.setClientId("client");
         resourceDetails.setClientSecret("secret");
         resourceDetails.setGrantType("password");
-        resourceDetails.setScope(Arrays.asList("all"));
+        resourceDetails.setScope(Arrays.asList("read"));
 
         DefaultOAuth2ClientContext clientContext = new DefaultOAuth2ClientContext();
 		return new OAuth2RestTemplate(resourceDetails,clientContext);
 	}
+	
 }
